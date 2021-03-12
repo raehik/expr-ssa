@@ -1,0 +1,64 @@
+name:                expr-ssa
+version:             0.1.0
+github:              "raehik/expr-ssa"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2021 Author name here"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+synopsis:            Expression to SSA program
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/raehik/expr-ssa#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- mtl
+- containers
+- text
+
+library:
+  source-dirs: src
+
+executables:
+  expr-ssa-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - expr-ssa
+
+# TODO hspec vers
+tests:
+  expr-ssa-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    build-tools:
+    - hspec-discover
+    dependencies:
+    - expr-ssa
+    - hspec
+
+# show warnings (should be default)
+ghc-options:
+- -Wall
+
+# useful, non-intrusive extensions (should be default)
+default-extensions:
+- LambdaCase
+- OverloadedStrings

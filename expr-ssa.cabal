@@ -1,0 +1,85 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 9bf47fea3fdcfb7d213bd18ac96906d67aaa015e82ff350f79b875b01be563c6
+
+name:           expr-ssa
+version:        0.1.0
+synopsis:       Expression to SSA program
+description:    Please see the README on GitHub at <https://github.com/raehik/expr-ssa#readme>
+homepage:       https://github.com/raehik/expr-ssa#readme
+bug-reports:    https://github.com/raehik/expr-ssa/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2021 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/raehik/expr-ssa
+
+library
+  exposed-modules:
+      ExprSSA.Examples
+      ExprSSA.Old
+      ExprSSA.Pretty
+      ExprSSA.ToSSA
+      ExprSSA.Types
+      ExprSSA.Util
+  other-modules:
+      Paths_expr_ssa
+  hs-source-dirs:
+      src
+  default-extensions: LambdaCase OverloadedStrings
+  ghc-options: -Wall
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , mtl
+    , text
+  default-language: Haskell2010
+
+executable expr-ssa-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_expr_ssa
+  hs-source-dirs:
+      app
+  default-extensions: LambdaCase OverloadedStrings
+  ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , expr-ssa
+    , mtl
+    , text
+  default-language: Haskell2010
+
+test-suite expr-ssa-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      ExprSSA.ToSSASpec
+      Paths_expr_ssa
+  hs-source-dirs:
+      test
+  default-extensions: LambdaCase OverloadedStrings
+  ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N
+  build-tool-depends:
+      hspec-discover:hspec-discover
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , expr-ssa
+    , hspec
+    , mtl
+    , text
+  default-language: Haskell2010
