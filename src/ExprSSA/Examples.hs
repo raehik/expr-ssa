@@ -11,9 +11,15 @@ testTranslateExprAndPrint :: Expr -> IO ()
 testTranslateExprAndPrint =
     Text.putStrLn . prettySSAProg . runGenState . exprToSSA (Just "return")
 
+-- | Pretty print an 'Expr' to stdout.
+testPrintExpr :: Expr -> IO ()
+testPrintExpr =
+    Text.putStrLn . prettyExpr Nothing
+
 --------------------------------------------------------------------------------
 
--- probably: (1*b) + (((2*b)+(1*b))*0)
+-- 1*b + (2*b+1*b)*0
+-- (stupid example lol?)
 ex1 :: Expr
 ex1 =
   EBinOp Add
