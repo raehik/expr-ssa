@@ -82,7 +82,7 @@ exprToSSAShallow = \case
 -- Certain expressions (leaf expressions) can be translated directly. Others
 -- (non-leaf expressions) are generated a fresh name and returned alongside it,
 -- intended to be used for further processing.
-exprToSSAValue :: MonadGen m => Expr -> m (SSAValue, (Maybe (Name, Expr)))
+exprToSSAValue :: MonadGen m => Expr -> m (SSAValue, Maybe (Name, Expr))
 exprToSSAValue = \case
   ENum x -> return (SSAValueNum x, Nothing)
   EVar v -> return (SSAValueVar v, Nothing)
