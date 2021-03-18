@@ -1,0 +1,30 @@
+name: CI
+
+# set when this workflow runs
+on:
+  # on all pushes to main
+  # (make sure this matches your primary branch! main/master)
+  push:
+    branches:
+    - main
+
+  # and on all PR pushes
+  pull_request:
+    types:
+    - opened
+    - synchronize
+
+jobs:
+  build-test-ubuntu-stack:
+    name: Ubuntu / Stack
+
+    # OS to run on (can alternatively use Docker image)
+    runs-on: ubuntu-latest
+
+    steps:
+    # `uses` runs a prebuilt "action" from GitHub (name is repo)
+    - uses: actions/checkout@v2
+
+    # `run` runs a command in terminal
+    - name: Build and run tests
+      run: stack test --color always --test-arguments "--color"
