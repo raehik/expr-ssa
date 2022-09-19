@@ -29,5 +29,4 @@ jobs:
       with:
         ghc-version: "9.0"
 
-    - name: Install project dependencies
-      run: cabal test --test-show-details=streaming
+    - run: cabal test --test-show-details=streaming
