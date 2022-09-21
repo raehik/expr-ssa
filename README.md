@@ -6,9 +6,10 @@ Originally used to demonstrate GitHub Actions for undergraduates at University
 of Kent 2021.
 
 ## Building and testing
-This is a Haskell project built using Cabal, a package management tool. Assuming
-you have Cabal and a version of the GHC Haskell compiler installed, running the
-following command in the base repository directory will build the library:
+This is a Haskell project built using Cabal, a package management tool for
+Haskell. Assuming you have Cabal and a version of the GHC Haskell compiler
+installed, running the following command in the base repository directory will
+build the library:
 
     cabal build
 
