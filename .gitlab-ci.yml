@@ -1,0 +1,10 @@
+image: haskell:latest
+
+stages:
+- test
+
+stage-test:
+  stage: test
+  script:
+  - stack setup
+  - stack test --color always --test-arguments "--color"
